@@ -56,5 +56,10 @@ namespace FrmLogin
             List<Usuario> Usuarios = Usuario.GetUsuario();
             dgvPesquisaUsuario.DataSource = Usuarios;
         }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

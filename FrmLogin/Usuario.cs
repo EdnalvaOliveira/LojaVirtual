@@ -27,6 +27,22 @@ namespace FrmLogin
             return referencia;
         }
 
+        public void Salvar() {
+            bool inserir = (this.codigo == 0);
+
+            SqlConnection cn = Conexao.Conectar();
+            SqlCommand cmd = cn.CreateCommand();
+
+            if (inserir) {
+                cmd.CommandText = "INSET INTO Usuario" +
+                    "loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo)" +
+                    "VALUES" +
+                    "(@login, @senha, @nome, @perfil, @status)";
+
+            }
+
+        }
+
         public static List<Usuario> GetUsuario() {
             string sql = "SELECT idUsuario, loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo FROM dbo.Usuario";
             SqlConnection cn = Conexao.Conectar();

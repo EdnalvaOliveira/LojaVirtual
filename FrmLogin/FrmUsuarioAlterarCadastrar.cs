@@ -45,5 +45,9 @@ namespace FrmLogin
             ChamarTela.UsuarioAlterarCadastrar();
             Close();
         }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

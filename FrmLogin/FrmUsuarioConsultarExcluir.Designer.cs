@@ -151,6 +151,7 @@
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(531, 20);
             this.txtPesquisar.TabIndex = 21;
+            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             // 
             // dgvPesquisaUsuario
             // 
