@@ -33,12 +33,21 @@ namespace FrmLogin
             SqlConnection cn = Conexao.Conectar();
             SqlCommand cmd = cn.CreateCommand();
 
-            if (inserir) {
+            if (inserir)
+            {
                 cmd.CommandText = "INSET INTO Usuario" +
                     "loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo)" +
                     "VALUES" +
                     "(@login, @senha, @nome, @perfil, @status)";
 
+            }
+            else {
+                cmd.CommandText = "UPDATE Usuario " +
+                    "SET loginUsurio = @login," +
+                    "senhaUsuario = @senha, " +
+                    "nomeUsuario = @nome, " +
+                    "tipoPerfil = @perfil, " +
+                    "usuarioAtivo = @status ";
             }
 
         }
