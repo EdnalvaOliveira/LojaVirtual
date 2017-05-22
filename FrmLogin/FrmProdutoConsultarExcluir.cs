@@ -45,6 +45,12 @@ namespace FrmLogin
             ChamarTela.ProdutoAlterarCadastrar();
             Close();
         }
-       
+
+        private void dgvGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            List<Produto> Produtos = Produto.SelecionarProduto();
+            dgvConsultaProduto.DataSource = Produtos;
+
+        }
     }
 }

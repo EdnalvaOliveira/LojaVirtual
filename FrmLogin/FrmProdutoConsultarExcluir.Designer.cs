@@ -32,7 +32,7 @@
             this.rdbNome = new System.Windows.Forms.RadioButton();
             this.rdbCategoria = new System.Windows.Forms.RadioButton();
             this.rdbPreco = new System.Windows.Forms.RadioButton();
-            this.dgvGrid = new System.Windows.Forms.DataGridView();
+            this.dgvConsultaProduto = new System.Windows.Forms.DataGridView();
             this.c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descrição = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +49,7 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -98,10 +98,10 @@
             this.rdbPreco.Text = "Preço";
             this.rdbPreco.UseVisualStyleBackColor = true;
             // 
-            // dgvGrid
+            // dgvConsultaProduto
             // 
-            this.dgvGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvConsultaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsultaProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c,
             this.Nome,
             this.Descrição,
@@ -110,10 +110,11 @@
             this.Categoria,
             this.Quantidade,
             this.Status});
-            this.dgvGrid.Location = new System.Drawing.Point(7, 247);
-            this.dgvGrid.Name = "dgvGrid";
-            this.dgvGrid.Size = new System.Drawing.Size(843, 256);
-            this.dgvGrid.TabIndex = 14;
+            this.dgvConsultaProduto.Location = new System.Drawing.Point(7, 247);
+            this.dgvConsultaProduto.Name = "dgvConsultaProduto";
+            this.dgvConsultaProduto.Size = new System.Drawing.Size(843, 256);
+            this.dgvConsultaProduto.TabIndex = 14;
+            this.dgvConsultaProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrid_CellContentClick);
             // 
             // c
             // 
@@ -268,7 +269,7 @@
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPesquisar);
-            this.Controls.Add(this.dgvGrid);
+            this.Controls.Add(this.dgvConsultaProduto);
             this.Controls.Add(this.rdbPreco);
             this.Controls.Add(this.rdbCategoria);
             this.Controls.Add(this.rdbNome);
@@ -282,7 +283,7 @@
             this.Name = "FrmProdutoConsultarExcluir";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmProdutoConsultarExcluir";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,7 +300,7 @@
         private System.Windows.Forms.RadioButton rdbNome;
         private System.Windows.Forms.RadioButton rdbCategoria;
         private System.Windows.Forms.RadioButton rdbPreco;
-        private System.Windows.Forms.DataGridView dgvGrid;
+        private System.Windows.Forms.DataGridView dgvConsultaProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn c;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descrição;

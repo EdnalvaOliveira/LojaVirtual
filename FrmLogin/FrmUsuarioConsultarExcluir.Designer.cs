@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
@@ -168,7 +169,12 @@
             this.usuarioAtivo});
             this.dgvPesquisaUsuario.Location = new System.Drawing.Point(53, 227);
             this.dgvPesquisaUsuario.Name = "dgvPesquisaUsuario";
-            this.dgvPesquisaUsuario.ReadOnly = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvPesquisaUsuario.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPesquisaUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPesquisaUsuario.Size = new System.Drawing.Size(751, 219);
             this.dgvPesquisaUsuario.TabIndex = 24;
@@ -177,37 +183,31 @@
             // 
             this.idUsuario.HeaderText = "Código";
             this.idUsuario.Name = "idUsuario";
-            this.idUsuario.ReadOnly = true;
             // 
             // nomeUsuario
             // 
             this.nomeUsuario.HeaderText = "Nome";
             this.nomeUsuario.Name = "nomeUsuario";
-            this.nomeUsuario.ReadOnly = true;
             // 
             // loginUsuario
             // 
             this.loginUsuario.HeaderText = "Login";
             this.loginUsuario.Name = "loginUsuario";
-            this.loginUsuario.ReadOnly = true;
             // 
             // senhaUsuario
             // 
             this.senhaUsuario.HeaderText = "Senha";
             this.senhaUsuario.Name = "senhaUsuario";
-            this.senhaUsuario.ReadOnly = true;
             // 
             // tipoPerfil
             // 
             this.tipoPerfil.HeaderText = "Pefil";
             this.tipoPerfil.Name = "tipoPerfil";
-            this.tipoPerfil.ReadOnly = true;
             // 
             // usuarioAtivo
             // 
             this.usuarioAtivo.HeaderText = "Status";
             this.usuarioAtivo.Name = "usuarioAtivo";
-            this.usuarioAtivo.ReadOnly = true;
             // 
             // FrmUsuarioConsultarExcluir
             // 
