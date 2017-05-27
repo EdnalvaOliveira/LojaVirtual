@@ -33,14 +33,6 @@
             this.rdbCategoria = new System.Windows.Forms.RadioButton();
             this.rdbPreco = new System.Windows.Forms.RadioButton();
             this.dgvConsultaProduto = new System.Windows.Forms.DataGridView();
-            this.c = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descrição = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Preço = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescProm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -101,60 +93,11 @@
             // dgvConsultaProduto
             // 
             this.dgvConsultaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsultaProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.c,
-            this.Nome,
-            this.Descrição,
-            this.Preço,
-            this.DescProm,
-            this.Categoria,
-            this.Quantidade,
-            this.Status});
             this.dgvConsultaProduto.Location = new System.Drawing.Point(7, 247);
             this.dgvConsultaProduto.Name = "dgvConsultaProduto";
             this.dgvConsultaProduto.Size = new System.Drawing.Size(843, 256);
             this.dgvConsultaProduto.TabIndex = 14;
             this.dgvConsultaProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrid_CellContentClick);
-            // 
-            // c
-            // 
-            this.c.HeaderText = "ID";
-            this.c.Name = "c";
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            // 
-            // Descrição
-            // 
-            this.Descrição.HeaderText = "Descrição";
-            this.Descrição.Name = "Descrição";
-            // 
-            // Preço
-            // 
-            this.Preço.HeaderText = "Preço";
-            this.Preço.Name = "Preço";
-            // 
-            // DescProm
-            // 
-            this.DescProm.HeaderText = "Desc Prom";
-            this.DescProm.Name = "DescProm";
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
             // 
             // txtPesquisar
             // 
@@ -283,6 +226,7 @@
             this.Name = "FrmProdutoConsultarExcluir";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmProdutoConsultarExcluir";
+            this.Load += new System.EventHandler(this.FrmProdutoConsultarExcluir_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -301,14 +245,6 @@
         private System.Windows.Forms.RadioButton rdbCategoria;
         private System.Windows.Forms.RadioButton rdbPreco;
         private System.Windows.Forms.DataGridView dgvConsultaProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descrição;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Preço;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescProm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.TextBox txtPesquisar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPesquisar;

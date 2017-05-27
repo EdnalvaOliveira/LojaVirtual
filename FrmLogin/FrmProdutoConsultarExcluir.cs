@@ -48,9 +48,14 @@ namespace FrmLogin
 
         private void dgvGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<Produto> Produtos = Produto.SelecionarProduto();
-            dgvConsultaProduto.DataSource = Produtos;
 
+        }
+
+        private void FrmProdutoConsultarExcluir_Load(object sender, EventArgs e)
+        {
+            Produto produto = new Produto();
+            List<Produto> Produtos = produto.SelecionarProduto();
+            dgvConsultaProduto.DataSource = Produtos;
         }
     }
 }

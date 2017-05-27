@@ -18,19 +18,101 @@ namespace FrmLogin
         private bool status;
         private int estoqueMin;
 
-        private static Produto referencia;
- 
-        public static Produto GetInstance() {
-            if (referencia == null)
-                referencia = new Produto();
-
-            return referencia;
+        public Produto(string nome, string descricao, decimal preco, decimal desconto, bool status, int estoqueMin) {
+            this.nome = nome;
+            this.descricao = descricao;
+            this.preco = preco;
+            this.desconto = desconto;
+            this.status = status;
+            this.estoqueMin = estoqueMin;
         }
 
+        public Produto(){
+        }
 
-        public static List<Produto> SelecionarProduto() {
+        public int Codigo {
+            get {
+                return this.codigo;
+            }
+            set {
+                this.codigo = value;
+            }
+        }
 
-            string sql = "SELECT idProduto, nomeProduto, descProduto, precProduto, descontoPromocao, idCategoria, imagemProduto, ativoProduto, idUsuario, qtdMinEstoque FROM Produto";
+        public string Nome
+        {
+            get
+            {
+                return this.nome;
+            }
+            set
+            {
+                this.nome = value;
+            }
+        }
+
+        public string Descricao
+        {
+            get
+            {
+                return this.descricao;
+            }
+            set
+            {
+                this.descricao = value;
+            }
+        }
+
+        public decimal Preco
+        {
+            get
+            {
+                return this.preco;
+            }
+            set
+            {
+                this.preco = value;
+            }
+        }
+
+        public decimal Desconto
+        {
+            get
+            {
+                return this.desconto;
+            }
+            set
+            {
+                this.desconto = value;
+            }
+        }
+
+        public bool Status
+        {
+            get
+            {
+                return this.status;
+            }
+            set
+            {
+                this.status = value;
+            }
+        }
+
+        public int Estoque
+        {
+            get
+            {
+                return this.estoqueMin;
+            }
+            set
+            {
+                this.estoqueMin = value;
+            }
+        }
+        public List<Produto> SelecionarProduto() {
+
+            string sql = "SELECT idProduto, nomeProduto, descProduto, precProduto, descontoPromocao, idCategoria, ativoProduto, idUsuario, qtdMinEstoque FROM Produto";
             SqlConnection cn = Conexao.Conectar();
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandText = sql;
@@ -43,8 +125,8 @@ namespace FrmLogin
                 p.nome = dr.GetString(dr.GetOrdinal("nomeProduto"));
                 p.descricao = dr.GetString(dr.GetOrdinal("descProduto"));
                 p.preco = dr.GetDecimal(dr.GetOrdinal("precProduto"));
-                p.desconto = dr.GetDecimal(dr.GetOrdinal("descontoProduto"));
-                p.status = dr.GetBoolean(dr.GetOrdinal("ativoProduto"));
+                p.desconto = dr.GetDecimal(dr.GetOrdinal("descontoPromocao"));
+                p.status = true;//dr.GetBoolean(dr.GetOrdinal("ativoProduto"));
                 p.estoqueMin = dr.GetInt32(dr.GetOrdinal("qtdMinEstoque"));
                 Produtos.Add(p);
             }
