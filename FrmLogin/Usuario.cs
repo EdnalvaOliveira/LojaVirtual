@@ -100,28 +100,39 @@ namespace FrmLogin
         }
 
 
-        public void Salvar() {
+        public int Salvar() {
             bool inserir = (this._codigo == 0);
-
+            int resultado = 0;
             SqlConnection cn = Conexao.Conectar();
-            SqlCommand cmd = cn.CreateCommand();
+            SqlCommand cmdc = cn.CreateCommand();
 
-            if (inserir)
-            {
-                cmd.CommandText = "INSET INTO Usuario" +
-                    "loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo)" +
-                    "VALUES" +
-                    "(@login, @senha, @nome, @perfil, @status)";
+           // if (inserir)
+            //{
+                cmdc.CommandText = "INSERT INTO Usuario" +
+                    "(loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo)" +
+                    "VALUES (" + _login + "," + _senha + "," + _nome + "," + _perfil + "," + _status + ")";
+            SqlCommand cmd = new SqlCommand(cmdc.CommandText, cn);
+            try{
+                if (cn.State.Equals("Closed")) {
+                    cn.Open();
+                    resultado = cmd.ExecuteNonQuery();
+                }
 
+                cmd.Dispose();
             }
-            else {
+            catch(SqlException ex){
+                resultado = ex;
+            }
+
+          }
+            /*else {
                 cmd.CommandText = "UPDATE Usuario " +
                     "SET loginUsurio = @login," +
                     "senhaUsuario = @senha, " +
                     "nomeUsuario = @nome, " +
                     "tipoPerfil = @perfil, " +
                     "usuarioAtivo = @status ";
-            }
+            }*/
 
         }
 
