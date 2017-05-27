@@ -10,25 +10,98 @@ namespace FrmLogin
     class Usuario
     {
 
-        private int codigo { get; set; }
-        private string nome  { get; set; }
-        private string login { get; set; }
-        private string senha { get; set; }
-        private string pefil { get; set; }
-        private bool status { get; set; }
+        private int _codigo;
+        private string _nome;
+        private string _login;
+        private string _senha;
+        private string _perfil;
+        private bool _status;
 
-        private static Usuario referencia;
-
-        public static Usuario getInstance() {
-
-            if (referencia == null) {
-                referencia = new Usuario();
-            }
-            return referencia;
+        public Usuario() {
         }
 
+        public Usuario(string nome, string login, string senha, string perfil, bool status) {
+            this._nome = nome;
+            this._login = login;
+            this._senha = senha;
+            this._perfil = perfil;
+            this._status = status;
+        }
+
+        public int Codigo {
+             get
+            {
+                return this._codigo;
+            }
+            set
+            { 
+                this._codigo = value;
+            }
+            }
+
+        public string Nome
+            {
+            get
+            {
+                return this._nome;
+            }
+            set
+            {
+                this._nome = value;
+            }
+        }
+
+        public string Login
+        {
+            get
+            {
+                return this._login;
+            }
+            set
+            {
+                this._login = value;
+            }
+        }
+
+        public string Senha
+        {
+            get
+            {
+                return this._senha;
+            }
+            set
+            {
+                this._senha = value;
+            }
+        }
+
+        public string Perfil
+        {
+            get
+            {
+                return this._perfil;
+            }
+            set
+            {
+                this._perfil = value;
+            }
+        }
+
+        public bool Status
+        {
+            get
+            {
+                return this._status;
+            }
+            set
+            {
+                this._status = value;
+            }
+        }
+
+
         public void Salvar() {
-            bool inserir = (this.codigo == 0);
+            bool inserir = (this._codigo == 0);
 
             SqlConnection cn = Conexao.Conectar();
             SqlCommand cmd = cn.CreateCommand();
@@ -52,7 +125,7 @@ namespace FrmLogin
 
         }
 
-        public static List<Usuario> GetUsuario() {
+        public List<Usuario> GetUsuario() {
             string sql = "SELECT idUsuario, loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo FROM dbo.Usuario";
             SqlConnection cn = Conexao.Conectar();
             SqlCommand cmd = cn.CreateCommand();
@@ -62,12 +135,12 @@ namespace FrmLogin
             List<Usuario> Usuarios = new List<Usuario>();
             while (dr.Read()) {
                 Usuario usuario = new Usuario();
-                usuario.codigo = dr.GetInt32(dr.GetOrdinal("idUsuario"));
-                usuario.login = dr.GetString(dr.GetOrdinal("loginUsuario"));
-                usuario.senha = dr.GetString(dr.GetOrdinal("senhaUsuario"));
-                usuario.nome = dr.GetString(dr.GetOrdinal("nomeUsuario"));
-                usuario.pefil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
-                usuario.status = dr.GetBoolean(dr.GetOrdinal("usuarioAtivo"));
+                usuario._codigo = dr.GetInt32(dr.GetOrdinal("idUsuario"));
+                usuario._login = dr.GetString(dr.GetOrdinal("loginUsuario"));
+                usuario._senha = dr.GetString(dr.GetOrdinal("senhaUsuario"));
+                usuario._nome = dr.GetString(dr.GetOrdinal("nomeUsuario"));
+                usuario._perfil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
+                usuario._status = dr.GetBoolean(dr.GetOrdinal("usuarioAtivo"));
                 Usuarios.Add(usuario);
 
             }

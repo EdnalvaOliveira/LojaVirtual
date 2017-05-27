@@ -38,12 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.dgvPesquisaUsuario = new System.Windows.Forms.DataGridView();
-            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.senhaUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoPerfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioAtivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesquisaUsuario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,13 +154,6 @@
             this.dgvPesquisaUsuario.AllowUserToResizeColumns = false;
             this.dgvPesquisaUsuario.AllowUserToResizeRows = false;
             this.dgvPesquisaUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPesquisaUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idUsuario,
-            this.nomeUsuario,
-            this.loginUsuario,
-            this.senhaUsuario,
-            this.tipoPerfil,
-            this.usuarioAtivo});
             this.dgvPesquisaUsuario.Location = new System.Drawing.Point(53, 227);
             this.dgvPesquisaUsuario.Name = "dgvPesquisaUsuario";
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -178,36 +165,6 @@
             this.dgvPesquisaUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPesquisaUsuario.Size = new System.Drawing.Size(751, 219);
             this.dgvPesquisaUsuario.TabIndex = 24;
-            // 
-            // idUsuario
-            // 
-            this.idUsuario.HeaderText = "Código";
-            this.idUsuario.Name = "idUsuario";
-            // 
-            // nomeUsuario
-            // 
-            this.nomeUsuario.HeaderText = "Nome";
-            this.nomeUsuario.Name = "nomeUsuario";
-            // 
-            // loginUsuario
-            // 
-            this.loginUsuario.HeaderText = "Login";
-            this.loginUsuario.Name = "loginUsuario";
-            // 
-            // senhaUsuario
-            // 
-            this.senhaUsuario.HeaderText = "Senha";
-            this.senhaUsuario.Name = "senhaUsuario";
-            // 
-            // tipoPerfil
-            // 
-            this.tipoPerfil.HeaderText = "Pefil";
-            this.tipoPerfil.Name = "tipoPerfil";
-            // 
-            // usuarioAtivo
-            // 
-            this.usuarioAtivo.HeaderText = "Status";
-            this.usuarioAtivo.Name = "usuarioAtivo";
             // 
             // FrmUsuarioConsultarExcluir
             // 
@@ -227,6 +184,7 @@
             this.Name = "FrmUsuarioConsultarExcluir";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmUsuarioAlterarExcluir";
+            this.Load += new System.EventHandler(this.FrmUsuarioConsultarExcluir_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesquisaUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -244,11 +202,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPesquisar;
         private System.Windows.Forms.DataGridView dgvPesquisaUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loginUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn senhaUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoPerfil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioAtivo;
     }
 }
