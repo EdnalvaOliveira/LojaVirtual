@@ -18,8 +18,8 @@ namespace FrmLogin
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MdiPrincipal());
             //Application.Run(new MdiPrincipal());
-            Application.Run(new FrmUsuarioAlterarCadastrar());
-            //Application.Run(new FrmUsuarioConsultarExcluir());
+            //Application.Run(new FrmUsuarioAlterarCadastrar());
+            Application.Run(new FrmUsuarioConsultarExcluir());
         }
     }
 }

@@ -53,7 +53,12 @@ namespace FrmLogin
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            
+            Usuario usuario = new Usuario();
+
+            usuario.Nome = txtPesquisar.Text;
+
+            List<Usuario> Usuarios = usuario.GetUsuarioPor();
+            dgvPesquisaUsuario.DataSource = Usuarios;
         }
 
         private void txtPesquisar_TextChanged(object sender, EventArgs e)

@@ -144,15 +144,54 @@ namespace FrmLogin
             
 
           }
-            /*else {
-                cmd.CommandText = "UPDATE Usuario " +
-                    "SET loginUsurio = @login," +
-                    "senhaUsuario = @senha, " +
-                    "nomeUsuario = @nome, " +
-                    "tipoPerfil = @perfil, " +
-                    "usuarioAtivo = @status ";
-            }*/
 
+        public string Atualizar() {
+            string mensagem = "", erro = "teste";
+
+            SqlConnection cn = Conexao.Conectar();
+            SqlCommand cmd = cn.CreateCommand();
+
+            cmd.CommandText = "UPDATE Usuario " +
+                    "SET loginUsurio = '" + _login +
+                    "', senhaUsuario = " + _senha +
+                    "', nomeUsuario = " + _nome +
+                    "', tipoPerfil = " + _perfil +
+                    "', usuarioAtivo = " + _status;
+
+            SqlCommand atualiza = new SqlCommand(cmd.CommandText, cn);
+            try
+            {
+                if (cn.State.ToString() == "Open")
+                {
+                    //cn.Open();
+                    int resultado = cmd.ExecuteNonQuery();
+                    if (resultado == 1)
+                    {
+                        mensagem = "Usuario Cadastrado!";
+                    }
+                    else
+                    {
+                        mensagem = "Falha ao cadastrar!";
+                    }
+                }
+
+                cmd.Dispose();
+            }
+            catch (SqlException ex)
+            {
+                erro = Convert.ToString(ex);
+            }
+            finally
+            {
+                if (cn.State.ToString() == "Open")
+                {
+                    cn.Close();
+                }
+            }
+
+            return mensagem;
+
+        }
 
 
         public List<Usuario> GetUsuario() {
@@ -181,6 +220,32 @@ namespace FrmLogin
             return Usuarios;
         }
 
+        public List<Usuario> GetUsuarioPor()
+        {
+            string sql = "SELECT idUsuario, loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo FROM dbo.Usuario WHERE loginUsuario = %'" + _login + "'%";
+            SqlConnection cn = Conexao.Conectar();
+            SqlCommand cmd = cn.CreateCommand();
+            cmd.CommandText = sql;
 
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<Usuario> Usuarios = new List<Usuario>();
+            while (dr.Read())
+            {
+                Usuario usuario = new Usuario();
+                usuario._codigo = dr.GetInt32(dr.GetOrdinal("idUsuario"));
+                usuario._login = dr.GetString(dr.GetOrdinal("loginUsuario"));
+                usuario._senha = dr.GetString(dr.GetOrdinal("senhaUsuario"));
+                usuario._nome = dr.GetString(dr.GetOrdinal("nomeUsuario"));
+                usuario._perfil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
+                usuario._status = dr.GetBoolean(dr.GetOrdinal("usuarioAtivo"));
+                Usuarios.Add(usuario);
+
+            }
+
+            cn.Close();
+            cn.Dispose();
+
+            return Usuarios;
+        }
     }
 }
