@@ -224,6 +224,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -289,8 +290,8 @@
             // 
             this.CboPerfil.FormattingEnabled = true;
             this.CboPerfil.Items.AddRange(new object[] {
-            "Adim",
-            "User"});
+            "A",
+            "E"});
             this.CboPerfil.Location = new System.Drawing.Point(436, 304);
             this.CboPerfil.Name = "CboPerfil";
             this.CboPerfil.Size = new System.Drawing.Size(225, 21);
@@ -325,6 +326,7 @@
             this.Name = "FrmUsuarioAlterarCadastrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmUsuarioCadastrarConsultar";
+            this.Load += new System.EventHandler(this.FrmUsuarioAlterarCadastrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grbStatus.ResumeLayout(false);
             this.grbStatus.PerformLayout();

@@ -100,29 +100,48 @@ namespace FrmLogin
         }
 
 
-        public int Salvar() {
+       public string Salvar() {
             bool inserir = (this._codigo == 0);
-            int resultado = 0;
-            SqlConnection cn = Conexao.Conectar();
-            SqlCommand cmdc = cn.CreateCommand();
+            string mensagem ="", erro = "teste";
 
-           // if (inserir)
-            //{
-                cmdc.CommandText = "INSERT INTO Usuario" +
-                    "(loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo)" +
-                    "VALUES (" + _login + "," + _senha + "," + _nome + "," + _perfil + "," + _status + ")";
-            SqlCommand cmd = new SqlCommand(cmdc.CommandText, cn);
-            try{
-                if (cn.State.Equals("Closed")) {
-                    cn.Open();
-                    resultado = cmd.ExecuteNonQuery();
-                }
+            SqlConnection cn = Conexao.Conectar();
+            SqlCommand cmd = cn.CreateCommand();
+
+            cmd.CommandText = "INSERT INTO Usuario" + 
+                "(loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo)" + 
+                "VALUES ('" + _login + "','" + _senha + "','" + _nome + "','" + _perfil + "','" + _status + "')";
+
+            SqlCommand insere = new SqlCommand(cmd.CommandText, cn);
+            try
+            {
+                if (cn.State.ToString() == "Open")
+                {
+                    //cn.Open();
+                    int resultado = cmd.ExecuteNonQuery();
+                    if (resultado == 1)
+                    {
+                        mensagem = "Usuario Cadastrado!";
+                    }
+                    else
+                    {
+                        mensagem = "Falha ao cadastrar!";
+                    }
+                } 
 
                 cmd.Dispose();
             }
-            catch(SqlException ex){
-                resultado = ex;
+            catch (SqlException ex)
+            {
+                erro = Convert.ToString(ex);
             }
+            finally {
+                if (cn.State.ToString() == "Open") {
+                    cn.Close();
+                }
+            }
+
+            return mensagem;
+            
 
           }
             /*else {
@@ -134,7 +153,7 @@ namespace FrmLogin
                     "usuarioAtivo = @status ";
             }*/
 
-        }
+
 
         public List<Usuario> GetUsuario() {
             string sql = "SELECT idUsuario, loginUsuario, senhaUsuario, nomeUsuario, tipoPerfil, usuarioAtivo FROM dbo.Usuario";
@@ -161,5 +180,7 @@ namespace FrmLogin
 
             return Usuarios;
         }
+
+
     }
 }

@@ -48,18 +48,12 @@ namespace FrmLogin
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            string login = Convert.ToString(txtLogin);
-            string senha = Convert.ToString(txtSenha);
-            string nome = Convert.ToString(txtNome);
-            string perfil = Convert.ToString(CboPerfil);
-            bool ativo = rbtStatusAtivado.Checked;
-
-            Usuario usuario = new Usuario(nome, login, senha, perfil, ativo);
+            Usuario usuario = new Usuario();
             //usuario.Codigo = Convert.ToInt32(txtCodigo);
-            usuario.Login = Convert.ToString(txtLogin);
-            usuario.Senha = Convert.ToString(txtSenha);
-            usuario.Nome = Convert.ToString(txtNome);
-            usuario.Perfil = Convert.ToString(CboPerfil);
+            usuario.Login = txtLogin.Text;
+            usuario.Senha = txtSenha.Text;
+            usuario.Nome = txtNome.Text;
+            usuario.Perfil = CboPerfil.Text;
             if (rbtStatusAtivado.Checked)
             {
                 usuario.Status = true;
@@ -68,7 +62,17 @@ namespace FrmLogin
                 usuario.Status = false;
             }
 
-            usuario.Salvar();
+            MessageBox.Show(usuario.Salvar());
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmUsuarioAlterarCadastrar_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
